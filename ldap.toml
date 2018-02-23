@@ -16,16 +16,16 @@ ssl_skip_verify = $LDAP_SKIP_CERT_VERIFY
 # root_ca_cert = "$LDAP_CERT_PATH"
 
 # Search user bind dn (e.g "cn=admin,dc=grafana,dc=org")
-bind_dn = "$LDAP_BIND_DN"
+bind_dn = "$LDAP_MANAGER_DN"
 # Search user bind password
 # If the password contains # or ; you have to wrap it with triple quotes. Ex """#password;"""
-bind_password = '$LDAP_BIND_PASSWORD'
+bind_password = '$LDAP_MANAGER_PASSWORD'
 
 # User search filter, for example "(cn=%s)" or "(sAMAccountName=%s)" or "(uid=%s)"
 search_filter = "$LDAP_SEARCH_FILTER"
 
 # An array of base dns to search through (e.g ["dc=grafana,dc=org"])
-search_base_dns = $LDAP_SEARCH_BASE
+search_base_dns = "[$LDAP_ROOT_DN]"
 
 # In POSIX LDAP schemas, without memberOf attribute a secondary query must be made for groups.
 # This is done by enabling group_search_filter below. You must also set member_of= "cn"
@@ -42,7 +42,7 @@ name = "givenName"
 surname = "sn"
 username = "cn"
 member_of = "memberOf"
-email =  "email"
+email =  "$LDAP_MAIL_ADDRESS_ATTRIBUTE_NAME"
 
 # Map ldap groups to grafana org roles
 [[servers.group_mappings]]
@@ -52,7 +52,7 @@ org_role = "Admin"
 # org_id = 1
 
 [[servers.group_mappings]]
-group_dn = $LDAP_ADMIN_GROUP_DN #e.g "cn=users,dc=grafana,dc=org"
+group_dn = $LDAP_USER_GROUP_DN #e.g "cn=users,dc=grafana,dc=org"
 org_role = "Editor"
 
 [[servers.group_mappings]]
