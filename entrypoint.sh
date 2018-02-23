@@ -18,3 +18,7 @@ echo "Restart Grafana"
 chown -R 1000:1000 /etc/grafana/
 
 service grafana-server restart
+
+echo "Running setup..."
+/setup.sh
+exit 0
