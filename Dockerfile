@@ -3,19 +3,18 @@ FROM grafana/grafana:4.6.3
 MAINTAINER Dean Godfree, <Dean.J.Godfree>
 
 # Copy in configuration files
-COPY ldap.toml /usr/share/grafana/conf/ldap_template.toml
-COPY grafana.ini /usr/share/grafana/conf/grafana.ini
+ADD ldap.toml /etc/grafana/ldap.toml
+ADD grafana.ini /etc/grafana/grafana.ini
 COPY entrypoint.sh /entrypoint.sh
-
-# Reprotect
-USER root
 
 RUN apt-get update && \
 	apt-get install -y dos2unix gettext-base && \
 	apt-get clean && \
 	rm -rf /var/lib/apt/lists/*
 
-# Environment variables
-ENV ADOP_LDAP_ENABLED=true
+ADD run.sh /run.sh
 
-ENTRYPOINT ["/entrypoint.sh"]
+# Workaround until Grafana 5 - Cannot import datasource as a file !!!
+COPY ./docker-entrypoint.sh /docker-entrypoint.sh
+ENTRYPOINT ["/bin/bash"]
+CMD ["/docker-entrypoint.sh"]
