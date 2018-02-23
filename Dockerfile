@@ -3,7 +3,7 @@ FROM grafana/grafana:4.6.3
 MAINTAINER Dean Godfree, <Dean.J.Godfree>
 
 # Copy in configuration files
-ADD ldap.toml /etc/grafana/ldap.toml
+ADD ldap.toml /etc/grafana/ldap_template.toml
 ADD grafana.ini /etc/grafana/grafana.ini
 COPY entrypoint.sh /entrypoint.sh
 
