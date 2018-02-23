@@ -15,7 +15,8 @@ echo "Restart Grafana"
 : "${GF_PATHS_PLUGINS:=/var/lib/grafana/plugins}"
 : "${GF_PATHS_PROVISIONING:=/etc/grafana/provisioning}"
 
-chown -R 1000:1000 /etc/grafana/
+chown -R grafana:grafana /etc/grafana/
+chown -R grafana:grafana /usr/share/grafana/
 
 service grafana-server restart
 
