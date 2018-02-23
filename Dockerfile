@@ -5,7 +5,6 @@ MAINTAINER Dean Godfree, <Dean.J.Godfree>
 # Copy in configuration files
 ADD ldap.toml /etc/grafana/ldap_template.toml
 ADD grafana.ini /etc/grafana/grafana.ini
-COPY entrypoint.sh /entrypoint.sh
 
 RUN apt-get update && \
 	apt-get install -y dos2unix gettext-base && \
