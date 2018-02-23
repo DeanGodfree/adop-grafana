@@ -21,5 +21,5 @@ chown -R grafana:grafana /usr/share/grafana/
 service grafana-server restart
 
 echo "Running setup..."
-/setup.sh
+/run.sh
 exit 0
