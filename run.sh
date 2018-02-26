@@ -9,7 +9,8 @@ useradd -M -d /usr/share/grafana -u 1000 -g 1000 -s /bin/false grafana
 : "${GF_PATHS_LOGS:=/var/log/grafana}"
 #: "${GF_PATHS_PLUGINS:=/var/lib/grafana/plugins}"
 
-chown -R grafana:grafana "$GF_PATHS_DATA" "$GF_PATHS_LOGS"
+#chown -R grafana:grafana "$GF_PATHS_DATA" "$GF_PATHS_LOGS"
+chown -R grafana:grafana "$GF_PATHS_LOGS"
 chown -R grafana:grafana /etc/grafana
 chown -R grafana:grafana /usr/share/grafana
 
