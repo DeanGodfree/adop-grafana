@@ -54,6 +54,19 @@ function bootstrap_grafana {
             echo "" ;
         fi
     done ;
+    
+     for file in $(find ${GRAFANA_SOURCES_PATH}/dashboards/ -name '*.json') ; do
+        if [ -e "$file" ] ; then
+            echo "importing dashboard: $file" &&
+            curl --silent --fail --show-error \
+                -u ${GRAFANA_BASIC_AUTH} \
+                --request POST http://${GRAFANA_URL}/api/dashboards/db \
+                --header "Content-Type: application/json" \
+                --data-binary "@$file" ;
+            echo "" ;
+        fi
+    done ;
+   
 }
 
 # Turn on monitor mode so we can send job to background
