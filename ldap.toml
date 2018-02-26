@@ -13,10 +13,10 @@ start_tls = $LDAP_TLS
 # set to true if you want to skip ssl cert validation
 ssl_skip_verify = $LDAP_SKIP_CERT_VERIFY
 # set to the path to your root CA certificate or leave unset to use system defaults ("/path/to/certificate.crt")
-# root_ca_cert = "$LDAP_CERT_PATH"
+# root_ca_cert = $LDAP_CERT_PATH
 
 # Search user bind dn (e.g "cn=admin,dc=grafana,dc=org")
-bind_dn = "$LDAP_MANAGER_DN"
+bind_dn = $LDAP_MANAGER_DN
 # Search user bind password
 # If the password contains # or ; you have to wrap it with triple quotes. Ex """#password;"""
 bind_password = $LDAP_MANAGER_PASSWORD
@@ -42,7 +42,7 @@ name = "givenName"
 surname = "sn"
 username = "cn"
 member_of = "memberOf"
-email =  "$LDAP_MAIL_ADDRESS_ATTRIBUTE_NAME"
+email =  $LDAP_MAIL_ADDRESS_ATTRIBUTE_NAME
 
 # Map ldap groups to grafana org roles
 [[servers.group_mappings]]
