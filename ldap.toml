@@ -19,7 +19,7 @@ ssl_skip_verify = $LDAP_SKIP_CERT_VERIFY
 bind_dn = $LDAP_MANAGER_DN
 # Search user bind password
 # If the password contains # or ; you have to wrap it with triple quotes. Ex """#password;"""
-bind_password = $LDAP_MANAGER_PASSWORD
+bind_password = '$LDAP_MANAGER_PASSWORD'
 
 # User search filter, for example "(cn=%s)" or "(sAMAccountName=%s)" or "(uid=%s)"
 search_filter = $LDAP_SEARCH_FILTER
