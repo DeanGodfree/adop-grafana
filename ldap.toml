@@ -22,10 +22,10 @@ bind_dn = $LDAP_MANAGER_DN
 bind_password = $LDAP_MANAGER_PASSWORD
 
 # User search filter, for example "(cn=%s)" or "(sAMAccountName=%s)" or "(uid=%s)"
-search_filter = "$LDAP_SEARCH_FILTER"
+search_filter = $LDAP_SEARCH_FILTER
 
 # An array of base dns to search through (e.g ["dc=grafana,dc=org"])
-search_base_dns = ["$LDAP_ROOT_DN"]
+search_base_dns = [$LDAP_ROOT_DN]
 
 # In POSIX LDAP schemas, without memberOf attribute a secondary query must be made for groups.
 # This is done by enabling group_search_filter below. You must also set member_of= "cn"
@@ -46,13 +46,13 @@ email =  $LDAP_MAIL_ADDRESS_ATTRIBUTE_NAME
 
 # Map ldap groups to grafana org roles
 [[servers.group_mappings]]
-group_dn = "$LDAP_ADMIN_GROUP_DN"  #e.g "cn=admins,dc=grafana,dc=org"
+group_dn = $LDAP_ADMIN_GROUP_DN  #e.g "cn=admins,dc=grafana,dc=org"
 org_role = "Admin"
 # The Grafana organization database id, optional, if left out the default org (id 1) will be used.  Setting this allows for multiple group_dn's to be assigned to the same org_role provided the org_id differs
 # org_id = 1
 
 [[servers.group_mappings]]
-group_dn = "$LDAP_USER_GROUP_DN" #e.g "cn=users,dc=grafana,dc=org"
+group_dn = $LDAP_USER_GROUP_DN #e.g "cn=users,dc=grafana,dc=org"
 org_role = "Editor"
 
 [[servers.group_mappings]]
