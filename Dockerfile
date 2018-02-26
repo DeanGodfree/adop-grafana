@@ -8,7 +8,7 @@ ADD grafana.ini /etc/grafana/grafana.ini
 ADD dashboards/gatling-dashboard.json /etc/grafana/dashboards/gatling-dashboard.json
 ADD dashboards/docker_containers.json /etc/grafana/dashboards/docker_containers.json
 ADD dashboards/docker_host.json /etc/grafana/dashboards/docker_host.json
-ADD dashboards/jenkins-performance-health.json /etc/grafana/grafana/dashboards/jenkins-performance-health.json
+ADD dashboards/jenkins-performance-health.json /etc/grafana/dashboards/jenkins-performance-health.json
 ADD dashboards/monitor_services.json /etc/grafana/dashboards/monitor_services.json
 ADD dashboards/nginx_container.json /etc/grafana/dashboards/nginx_container.json
 ADD datasources/influxdatasource.json  /etc/grafana/datasources/influxdatasource.json
