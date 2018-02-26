@@ -20,6 +20,7 @@ RUN apt-get update && \
 	rm -rf /var/lib/apt/lists/*
 
 ADD run.sh /run.sh
+RUN [“chmod”, “+x”, "/run.sh”]
 
 # Workaround until Grafana 5 - Cannot import datasource as a file !!!
 COPY ./docker-entrypoint.sh /docker-entrypoint.sh
