@@ -9,7 +9,7 @@ envsubst < /etc/grafana/ldap_template.toml > /etc/grafana/adop_ldap.toml
 
 # Variables
 GRAFANA_BASIC_AUTH="${GF_SECURITY_ADMIN_USER}:${GF_SECURITY_ADMIN_PASSWORD}"
-GRAFANA_URL="grafana:3000"
+GRAFANA_URL="localhost:3000"
 GRAFANA_SOURCES_PATH="/etc/grafana"
 
 function kill_container {
