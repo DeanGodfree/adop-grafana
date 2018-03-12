@@ -72,6 +72,10 @@ function bootstrap_grafana {
 # Turn on monitor mode so we can send job to background
 set -m
 
+#Start Filebeat
+echo "Starting filebeat"
+/etc/init.d/filebeat start
+
 # Run Grafana's default startup script https://github.com/grafana/grafana-docker
 echo "Start Grafana in Background"
 /run.sh &
