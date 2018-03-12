@@ -15,9 +15,8 @@ ADD datasources/influxdatasource.json  /etc/grafana/datasources/influxdatasource
 ADD datasources/Prometheus.json  /etc/grafana/datasources/Prometheus.json
 
 RUN apt-get update && \
-	apt-get install -y dos2unix gettext-base
-	
-	
+	apt-get install -y dos2unix gettext-base wget
+
 #Install Filebeat
 RUN curl -o /tmp/filebeat_6.2.2_amd64.deb https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-6.2.2-amd64.deb && \
     dpkg -i /tmp/filebeat_6.2.2_amd64.deb && apt-get install && \
