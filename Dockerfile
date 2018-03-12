@@ -24,7 +24,7 @@ RUN curl -o /tmp/filebeat_6.2.2_amd64.deb https://artifacts.elastic.co/downloads
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
  #Copying new filebeat config in post install
- COPY resources/filebeat.yml /etc/filebeat/filebeat.yml
+ COPY filebeat.yml /etc/filebeat/filebeat.yml
 
 ADD run.sh /run.sh
 RUN chmod +x /run.sh
