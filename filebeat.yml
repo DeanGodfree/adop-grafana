@@ -42,7 +42,7 @@ filebeat.prospectors:
   paths:
     - "/etc/grafana/data/log/*"
   fields:
-    grafana: true
+    log: grafana
   fields_under_root: true
 
   # Include lines. A list of regular expressions to match. It exports the lines that are
