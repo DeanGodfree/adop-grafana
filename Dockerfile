@@ -17,15 +17,18 @@ ADD datasources/Prometheus.json  /etc/grafana/datasources/Prometheus.json
 RUN apt-get update && \
 	apt-get install -y dos2unix gettext-base
 	
+	
 #Install Filebeat
 RUN curl -o /tmp/filebeat_6.2.2_amd64.deb https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-6.2.2-amd64.deb && \
-    dpkg -i /tmp/filebeat_6.2.2_amd64.deb && \
-    apt-get install && \
+    dpkg -i /tmp/filebeat_6.2.2_amd64.deb && apt-get install && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
  #Copying new filebeat config in post install
  COPY filebeat.yml /etc/filebeat/filebeat.yml
-
+ #copying example log file for testing filebeat/grafana **should be removed folowing integration testing
+ COPY chaincode_data.json /var/log/chaincode_data.json
+ 
+ 
 ADD run.sh /run.sh
 RUN chmod +x /run.sh
 
